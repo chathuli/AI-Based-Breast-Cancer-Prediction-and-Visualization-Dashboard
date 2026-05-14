@@ -1,0 +1,188 @@
+Test_ID,Module,Feature,Test_Case_Title,Test_Case_Description,Preconditions,Test_Steps,Expected_Result,Test_Data,Priority,Test_Type,Status,Executed_By,Execution_Date,Actual_Result,Pass_Fail,Comments
+TC001,Authentication,User Registration,Valid User Registration,Verify that a new user can successfully register with valid credentials,Application running; Database accessible,"1. Navigate to /register page
+2. Enter valid username
+3. Enter valid email
+4. Enter strong password
+5. Confirm password
+6. Click Register button","User successfully registered; Redirected to login page; Success message displayed","Username: testuser123
+Email: test@example.com
+Password: Test@1234",High,Functional,Not Executed,,,,,
+TC002,Authentication,User Registration,Duplicate Username Registration,Verify that system prevents registration with duplicate username,Application running; Existing user in database,"1. Navigate to /register
+2. Enter existing username
+3. Enter email and password
+4. Click Register","Error message: Username already exists; Registration fails",Existing username: admin,High,Negative,Not Executed,,,,,
+TC003,Authentication,User Registration,Weak Password Registration,Verify that system validates password strength,Application running,"1. Navigate to /register
+2. Enter username and email
+3. Enter weak password (e.g. 123)
+4. Click Register","Error message about password strength; Registration fails",Password: 123,Medium,Negative,Not Executed,,,,,
+TC004,Authentication,User Registration,Invalid Email Format,Verify that system validates email format,Application running,"1. Navigate to /register
+2. Enter username
+3. Enter invalid email (e.g. test@)
+4. Enter password
+5. Click Register","Error message: Invalid email format; Registration fails",Email: test@,Medium,Negative,Not Executed,,,,,
+TC005,Authentication,User Registration,Empty Fields Validation,Verify that system validates required fields,Application running,"1. Navigate to /register
+2. Leave all fields empty
+3. Click Register","Error messages for all required fields; Registration fails",All fields empty,High,Negative,Not Executed,,,,,
+TC006,Authentication,User Login,Valid Patient Login,Verify that patient can login with valid credentials,User account exists in database,"1. Navigate to /login
+2. Select Patient login
+3. Enter valid username
+4. Enter valid password
+5. Click Login","Successfully logged in; Redirected to patient dashboard; Welcome message displayed","Username: patient1
+Password: Patient@123",High,Functional,Not Executed,,,,,
+TC007,Authentication,User Login,Invalid Credentials Login,Verify that login fails with invalid credentials,Application running,"1. Navigate to /login
+2. Enter invalid username
+3. Enter invalid password
+4. Click Login","Error message: Invalid credentials; Login fails; Remains on login page","Username: wronguser
+Password: wrongpass",High,Negative,Not Executed,,,,,
+TC008,Authentication,User Login,Doctor Login,Verify that doctor can login successfully,Doctor account exists,"1. Navigate to /login
+2. Select Doctor login
+3. Enter doctor credentials
+4. Click Login",Successfully logged in; Redirected to doctor dashboard,"Username: doctor1
+Password: Doctor@123",High,Functional,Not Executed,,,,,
+TC009,Authentication,User Login,Admin Login,Verify that admin can login successfully,Admin account exists,"1. Navigate to /login
+2. Select Admin login
+3. Enter admin credentials
+4. Click Login",Successfully logged in; Redirected to admin dashboard,"Username: admin
+Password: Admin@123",High,Functional,Not Executed,,,,,
+TC010,Authentication,Session Management,Session Timeout,Verify that session expires after inactivity,User logged in,"1. Login to application
+2. Wait for session timeout period
+3. Try to access protected page",Session expired message; Redirected to login page,Wait time: 30 minutes,Medium,Functional,Not Executed,,,,,
+TC011,Authentication,Logout,User Logout,Verify that user can logout successfully,User logged in,"1. Login to application
+2. Click Logout button",Successfully logged out; Redirected to home page; Session cleared,N/A,High,Functional,Not Executed,,,,,
+TC012,Authorization,Access Control,Unauthorized Page Access,Verify that unauthorized access is prevented,User not logged in,"1. Directly navigate to /dashboard URL",Redirected to login page; Access denied message,URL: /dashboard,High,Security,Not Executed,,,,,
+TC013,Authorization,Role-based Access,Patient Access Doctor Dashboard,Verify that patient cannot access doctor dashboard,Logged in as patient,"1. Login as patient
+2. Try to access /doctor_dashboard",Access denied; Error message or redirect,Patient credentials,High,Security,Not Executed,,,,,
+TC014,Authorization,Role-based Access,Doctor Access Admin Dashboard,Verify that doctor cannot access admin dashboard,Logged in as doctor,"1. Login as doctor
+2. Try to access /admin_dashboard",Access denied; Error message or redirect,Doctor credentials,High,Security,Not Executed,,,,,
+TC015,Prediction,Symptom Input,Valid Symptom Prediction,Verify that prediction works with valid symptoms,User logged in,"1. Navigate to prediction page
+2. Enter valid symptoms
+3. Click Predict button","Prediction result displayed; Confidence score shown; SHAP explanation visible","Symptoms: lump=yes
+pain=yes
+size=3cm",Critical,Functional,Not Executed,,,,,
+TC016,Prediction,Symptom Input,Empty Symptom Submission,Verify validation for empty symptom submission,User logged in,"1. Navigate to prediction page
+2. Leave all symptom fields empty
+3. Click Predict","Error message: Please enter symptoms; Prediction not performed",All fields empty,High,Negative,Not Executed,,,,,
+TC017,Prediction,Image Upload,Valid Image Upload Prediction,Verify that prediction works with valid medical image,User logged in; Valid image file available,"1. Navigate to prediction page
+2. Click upload image
+3. Select valid medical image
+4. Click Predict","Image uploaded successfully; Prediction result displayed; Image analysis shown",Image: sample_mammogram.jpg,Critical,Functional,Not Executed,,,,,
+TC018,Prediction,Image Upload,Invalid Image Format Upload,Verify validation for invalid image format,User logged in,"1. Navigate to prediction page
+2. Try to upload non-image file (e.g. .txt)
+3. Click Predict","Error message: Invalid file format; Only images allowed",File: test.txt,Medium,Negative,Not Executed,,,,,
+TC019,Prediction,Image Upload,Large Image Upload,Verify handling of large image files,User logged in,"1. Navigate to prediction page
+2. Upload very large image (>10MB)
+3. Click Predict",Error message: File too large OR Image compressed and processed,Image: large_file.jpg (15MB),Medium,Negative,Not Executed,,,,,
+TC020,Prediction,Results Display,Prediction Result Accuracy,Verify that prediction results are displayed correctly,User logged in; Prediction performed,"1. Submit prediction request
+2. Wait for results
+3. Check result display","Result shows: Diagnosis (Benign/Malignant); Confidence percentage; Risk factors; SHAP explanation",Valid test data,Critical,Functional,Not Executed,,,,,
+TC021,Prediction,Report Generation,Generate PDF Report,Verify that PDF report is generated correctly,Prediction completed,"1. View prediction results
+2. Click Generate Report button","PDF report downloaded; Contains all prediction details; Properly formatted",Prediction ID: 123,High,Functional,Not Executed,,,,,
+TC022,Dashboard,Patient Dashboard,View Dashboard,Verify that patient dashboard loads correctly,Logged in as patient,"1. Login as patient
+2. Navigate to dashboard","Dashboard loads; Shows: Recent predictions; Appointment status; Profile summary",Patient credentials,High,Functional,Not Executed,,,,,
+TC023,Dashboard,Patient Dashboard,View Prediction History,Verify that patient can view past predictions,Logged in as patient; Has prediction history,"1. Navigate to dashboard
+2. Click History tab","All past predictions displayed; Shows date; diagnosis; confidence; View details option",Patient with history,High,Functional,Not Executed,,,,,
+TC024,Dashboard,Doctor Dashboard,View Assigned Patients,Verify that doctor can view assigned patients,Logged in as doctor,"1. Login as doctor
+2. View dashboard","Dashboard shows: Assigned patients list; Appointment schedule; Patient predictions",Doctor credentials,High,Functional,Not Executed,,,,,
+TC025,Dashboard,Doctor Dashboard,View Patient Details,Verify that doctor can view patient details,Logged in as doctor; Patients assigned,"1. Navigate to doctor dashboard
+2. Click on patient name","Patient details displayed; Medical history; Predictions; Contact info",Patient ID: 123,High,Functional,Not Executed,,,,,
+TC026,Dashboard,Admin Dashboard,View System Statistics,Verify that admin dashboard shows system statistics,Logged in as admin,"1. Login as admin
+2. View dashboard","Dashboard shows: Total users; Total predictions; System health; Recent activities",Admin credentials,High,Functional,Not Executed,,,,,
+TC027,Dashboard,Admin Dashboard,User Management,Verify that admin can manage users,Logged in as admin,"1. Navigate to admin dashboard
+2. Go to User Management section","User list displayed; Can view; edit; delete; activate/deactivate users",Admin credentials,Critical,Functional,Not Executed,,,,,
+TC028,Appointments,Book Appointment,Valid Appointment Booking,Verify that patient can book an appointment,Logged in as patient; Doctors available,"1. Navigate to appointments page
+2. Select doctor
+3. Select date and time
+4. Enter reason
+5. Click Book","Appointment successfully booked; Confirmation message; Email notification sent","Doctor: Dr. Silva
+Date: 2026-05-15
+Time: 10:00 AM",High,Functional,Not Executed,,,,,
+TC029,Appointments,Book Appointment,Past Date Appointment,Verify validation for past date selection,Logged in as patient,"1. Navigate to appointments
+2. Select past date
+3. Try to book",Error message: Cannot book appointments in the past,Date: 2026-01-01,Medium,Negative,Not Executed,,,,,
+TC030,Appointments,Book Appointment,Duplicate Time Slot Booking,Verify validation for already booked time slots,Logged in as patient; Time slot already booked,"1. Navigate to appointments
+2. Select already booked time slot
+3. Try to book","Error message: Time slot not available; Suggest alternative times",Already booked slot,High,Negative,Not Executed,,,,,
+TC031,Appointments,View Appointments,View Upcoming Appointments,Verify that patient can view upcoming appointments,Logged in as patient; Has appointments,"1. Navigate to appointments page
+2. View appointments list","All upcoming appointments displayed; Shows: Doctor name; Date; Time; Status",Patient with appointments,High,Functional,Not Executed,,,,,
+TC032,Appointments,Cancel Appointment,Cancel Upcoming Appointment,Verify that patient can cancel an appointment,Logged in as patient; Has upcoming appointment,"1. Navigate to appointments
+2. Select appointment
+3. Click Cancel button
+4. Confirm cancellation","Appointment cancelled; Status updated; Confirmation message",Appointment ID: 456,High,Functional,Not Executed,,,,,
+TC033,Appointments,Doctor Location,View Doctor Location Map,Verify that doctor locations are displayed on map,Logged in as patient,"1. Navigate to appointments page
+2. View doctor location map","Map displayed; Shows doctor locations with markers; Can click for details",N/A,Medium,Functional,Not Executed,,,,,
+TC034,Profile,View Profile,View User Profile,Verify that user profile is displayed correctly,User logged in,1. Navigate to profile page,"Profile shows: Username; Email; Registration date; Role; Edit option",User credentials,Medium,Functional,Not Executed,,,,,
+TC035,Profile,Edit Profile,Update Profile Information,Verify that user can update profile information,User logged in,"1. Navigate to profile
+2. Click Edit
+3. Update information
+4. Click Save","Profile updated successfully; Changes reflected; Confirmation message",New email: newemail@test.com,Medium,Functional,Not Executed,,,,,
+TC036,Profile,Change Password,Valid Password Change,Verify that user can change password,User logged in,"1. Navigate to profile
+2. Click Change Password
+3. Enter current password
+4. Enter new password
+5. Confirm new password
+6. Click Save","Password changed successfully; Can login with new password; Confirmation message","Current: Old@123
+New: New@456",High,Functional,Not Executed,,,,,
+TC037,Profile,Change Password,Wrong Current Password,Verify validation for incorrect current password,User logged in,"1. Navigate to change password
+2. Enter wrong current password
+3. Enter new password
+4. Click Save","Error message: Current password incorrect; Password not changed",Wrong password: WrongPass,Medium,Negative,Not Executed,,,,,
+TC038,API,REST API,API Authentication,Verify that API endpoints require authentication,API running; Valid API key,"1. Send request without auth token
+2. Send request with invalid token
+3. Send request with valid token","Without token: 401 Unauthorized; Invalid token: 401; Valid token: 200 OK",API endpoint: /api/predict,High,Security,Not Executed,,,,,
+TC039,API,REST API,Prediction API Endpoint,Verify that prediction API works correctly,API running; Valid auth token,"1. Send POST request to /api/predict
+2. Include valid symptoms data
+3. Include auth token","Response: 200 OK; JSON with prediction result; confidence score",POST /api/predict,Critical,Functional,Not Executed,,,,,
+TC040,API,REST API,Invalid API Request,Verify error handling for invalid API requests,API running,"1. Send request with invalid data format
+2. Send request with missing required fields","Response: 400 Bad Request; Error message describing issue",Invalid JSON data,Medium,Negative,Not Executed,,,,,
+TC041,Security,SQL Injection,SQL Injection Prevention,Verify that SQL injection attacks are prevented,Application running,"1. Try SQL injection in login form
+2. Enter: admin' OR '1'='1
+3. Try in search fields","Attack prevented; No unauthorized access; Error handled gracefully",Input: admin' OR '1'='1,Critical,Security,Not Executed,,,,,
+TC042,Security,XSS Attack,Cross-Site Scripting Prevention,Verify that XSS attacks are prevented,Application running,"1. Try to inject script in input fields
+2. Enter: <script>alert('XSS')</script>
+3. Submit form","Script not executed; Input sanitized; Displayed as text",Input: <script>alert('XSS')</script>,Critical,Security,Not Executed,,,,,
+TC043,Security,CSRF Protection,CSRF Token Validation,Verify that CSRF tokens are validated,User logged in,"1. Intercept form submission
+2. Remove or modify CSRF token
+3. Submit form","Request rejected; Error message; Form not processed",Modified CSRF token,High,Security,Not Executed,,,,,
+TC044,Security,Password Security,Password Hashing,Verify that passwords are stored securely,Database access,"1. Register new user
+2. Check database
+3. Verify password field","Password stored as hash; Not plain text; Uses strong hashing algorithm",Check users table,Critical,Security,Not Executed,,,,,
+TC045,Security,Session Security,Session Hijacking Prevention,Verify that session hijacking is prevented,User logged in,"1. Copy session cookie
+2. Try to use in different browser
+3. Check if access granted","Session validation fails; Access denied; Security measures active",Session cookie value,High,Security,Not Executed,,,,,
+TC046,Performance,Page Load,Home Page Load Time,Verify that home page loads within acceptable time,Application running,"1. Clear browser cache
+2. Navigate to home page
+3. Measure load time","Page loads within 3 seconds; All resources loaded; No errors",N/A,Medium,Performance,Not Executed,,,,,
+TC047,Performance,Prediction Speed,Prediction Response Time,Verify that predictions are returned quickly,User logged in,"1. Submit prediction request
+2. Measure response time",Results returned within 5 seconds; No timeout errors,Valid symptoms,High,Performance,Not Executed,,,,,
+TC048,Performance,Concurrent Users,Multiple Users Handling,Verify that application handles multiple concurrent users,Application running,"1. Simulate 10 concurrent users
+2. All perform predictions
+3. Check response times","All requests processed; No crashes; Acceptable response times",10 concurrent requests,Medium,Performance,Not Executed,,,,,
+TC049,Usability,Navigation,Menu Navigation,Verify that navigation menu works correctly,Application running,"1. Click each menu item
+2. Check navigation","All menu items work; Navigate to correct pages; No broken links",N/A,Medium,Usability,Not Executed,,,,,
+TC050,Usability,Responsive Design,Mobile Responsiveness,Verify that application is responsive on mobile devices,Application running,"1. Open in mobile browser
+2. Test all features
+3. Check layout","Layout responsive; All features accessible; No horizontal scroll; Buttons clickable",Mobile viewport,Medium,Usability,Not Executed,,,,,
+TC051,Usability,Error Messages,User-Friendly Error Messages,Verify that error messages are user-friendly,Application running,"1. Trigger various errors
+2. Check error messages","Error messages clear; Helpful; Suggest solutions; Not technical jargon",Various error scenarios,Medium,Usability,Not Executed,,,,,
+TC052,Usability,Form Validation,Real-time Form Validation,Verify that forms have real-time validation,Application running,"1. Start filling form
+2. Enter invalid data
+3. Check validation","Validation messages appear immediately; Helpful hints shown; Fields highlighted",Invalid email format,Medium,Usability,Not Executed,,,,,
+TC053,Database,Data Persistence,Prediction Data Storage,Verify that predictions are saved correctly in database,User logged in; Database accessible,"1. Perform prediction
+2. Check database
+3. Verify data","Prediction saved with: User ID; Timestamp; Results; All relevant data",Check predictions table,High,Functional,Not Executed,,,,,
+TC054,Database,Data Integrity,Database Constraints,Verify that database constraints are enforced,Database accessible,"1. Try to insert duplicate primary key
+2. Try to insert null in required field
+3. Try invalid foreign key","All constraints enforced; Appropriate errors returned; Data integrity maintained",Various constraint violations,High,Functional,Not Executed,,,,,
+TC055,Audit,Audit Logging,User Actions Logging,Verify that user actions are logged in audit log,User logged in; Audit system enabled,"1. Perform various actions
+2. Check audit logs","All actions logged with: User ID; Action type; Timestamp; Details",Check audit.db,Medium,Functional,Not Executed,,,,,
+TC056,Audit,Audit Logging,Admin View Audit Logs,Verify that admin can view audit logs,Logged in as admin,"1. Navigate to admin dashboard
+2. Go to Audit Logs section","Audit logs displayed; Can filter by: User; Date; Action type; Export option",Admin credentials,Medium,Functional,Not Executed,,,,,
+TC057,Reports,PDF Generation,Report Content Accuracy,Verify that PDF reports contain accurate information,Prediction completed,"1. Generate report
+2. Open PDF
+3. Verify content","Report contains: Patient info; Prediction results; SHAP explanation; Recommendations; Proper formatting",Prediction ID: 789,High,Functional,Not Executed,,,,,
+TC058,Reports,PDF Generation,Report Download,Verify that PDF reports download correctly,Prediction completed,"1. Click Generate Report
+2. Check download","PDF downloads successfully; File not corrupted; Opens properly",N/A,Medium,Functional,Not Executed,,,,,
+TC059,Integration,Email Notifications,Registration Email,Verify that registration confirmation email is sent,Email configured; User registered,"1. Register new user
+2. Check email inbox","Welcome email received; Contains: Username; Login link; Instructions",New user email,Low,Functional,Not Executed,,,,,
+TC060,Integration,Email Notifications,Appointment Confirmation Email,Verify that appointment confirmation email is sent,Email configured; Appointment booked,"1. Book appointment
+2. Check email","Confirmation email received; Contains: Doctor name; Date; Time; Location",Appointment details,Low,Functional,Not Executed,,,,,

@@ -1,0 +1,4 @@
+Execution_ID,Test_Cycle,Test_Date,Tester_Name,Test_ID,Module,Feature,Test_Case_Title,Status,Pass_Fail,Execution_Time_Minutes,Actual_Result,Defects_Found,Bug_IDs,Comments,Retest_Required,Retest_Date,Retest_Status
+EXE001,Cycle 1,2026-05-12,Tester1,TC001,Authentication,User Registration,Valid User Registration,Executed,Pass,5,User registered successfully; Redirected to login; Success message shown,0,N/A,Test passed without issues,No,,
+EXE002,Cycle 1,2026-05-12,Tester1,TC006,Authentication,User Login,Valid Patient Login,Executed,Fail,3,Login button not responding,1,BUG001,Critical bug found - login not working,Yes,,
+EXE003,,,,,,,,,,,,,,,,,

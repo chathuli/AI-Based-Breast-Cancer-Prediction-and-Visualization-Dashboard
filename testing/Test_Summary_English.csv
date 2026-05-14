@@ -1,0 +1,2 @@
+Report_Date,Test_Cycle,Total_Test_Cases,Executed,Not_Executed,Passed,Failed,Blocked,Pass_Percentage,Total_Bugs_Found,Critical_Bugs,High_Bugs,Medium_Bugs,Low_Bugs,Open_Bugs,Fixed_Bugs,Verified_Bugs,Test_Coverage_Percentage,Overall_Status,Comments
+2026-05-12,Cycle 1,60,0,60,0,0,0,0%,0,0,0,0,0,0,0,0,0%,Not Started,Testing not yet started

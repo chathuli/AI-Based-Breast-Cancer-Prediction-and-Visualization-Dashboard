@@ -1,0 +1,11 @@
+Scenario_ID,Module,Scenario_Name,Description,Test_Cases_Included,Priority,Status,Tested_By,Test_Date,Result,Comments
+SC001,Authentication,Complete User Registration Flow,New user registration සිට login දක්වා complete flow test කිරීම,"TC001, TC002, TC003, TC004, TC005",High,Not Tested,,,
+SC002,Authentication,Login Scenarios,All user types (Patient/Doctor/Admin) login scenarios,"TC006, TC007, TC008, TC009",Critical,Not Tested,,,
+SC003,Prediction,End-to-End Prediction,Symptom input සිට report generation දක්වා complete prediction flow,"TC015, TC017, TC020, TC021",Critical,Not Tested,,,
+SC004,Appointments,Complete Appointment Flow,Appointment booking සිට cancellation දක්වා complete flow,"TC028, TC029, TC030, TC031, TC032",High,Not Tested,,,
+SC005,Security,Security Testing Suite,All security related tests එකවර run කිරීම,"TC041, TC042, TC043, TC044, TC045",Critical,Not Tested,,,
+SC006,Dashboard,Dashboard Functionality,All user dashboards (Patient/Doctor/Admin) functionality test කිරීම,"TC022, TC023, TC024, TC025, TC026, TC027",High,Not Tested,,,
+SC007,API,API Testing Suite,All API endpoints test කිරීම,"TC038, TC039, TC040",High,Not Tested,,,
+SC008,Performance,Performance Testing,Application performance සහ load testing,"TC046, TC047, TC048",Medium,Not Tested,,,
+SC009,Usability,User Experience Testing,UI/UX සහ usability testing,"TC049, TC050, TC051, TC052",Medium,Not Tested,,,
+SC010,Integration,Email Integration Testing,Email notifications test කිරීම,"TC059, TC060",Low,Not Tested,,,

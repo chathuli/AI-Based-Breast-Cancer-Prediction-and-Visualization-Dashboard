@@ -1,0 +1,10 @@
+Metric,Value
+Total Samples,569
+Benign Samples,357
+Malignant Samples,212
+Benign Percentage,62.7%
+Malignant Percentage,37.3%
+Total Features,30
+Missing Values,0
+Duplicate Rows,0
+Class Ratio (B:M),1.68:1

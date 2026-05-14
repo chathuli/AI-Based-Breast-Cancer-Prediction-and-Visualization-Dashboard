@@ -1,0 +1,15 @@
+All Database Tables
+================================================================================
+
+users.db.api_tokens
+users.db.sessions
+users.db.sqlite_sequence
+users.db.users
+predictions.db.predictions
+predictions.db.sqlite_sequence
+appointments.db.appointments
+appointments.db.doctor_availability
+appointments.db.doctor_locations
+appointments.db.sqlite_sequence
+audit.db.audit_log
+audit.db.sqlite_sequence

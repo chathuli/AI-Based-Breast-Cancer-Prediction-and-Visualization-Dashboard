@@ -1,0 +1,4 @@
+Class,Count,Percentage,Ratio
+Benign,357,62.74%,357/569
+Malignant,212,37.26%,212/569
+Total,569,100.00%,569/569

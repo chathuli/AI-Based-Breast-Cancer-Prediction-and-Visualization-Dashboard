@@ -1,0 +1,8 @@
+Bug_ID,Date_Reported,Reported_By,Module,Feature,Bug_Title,Bug_Description,Steps_to_Reproduce,Expected_Behavior,Actual_Behavior,Severity,Priority,Status,Assigned_To,Environment,Browser,OS,Screenshots,Date_Fixed,Fixed_By,Fix_Description,Verification_Status,Verification_Date,Verified_By,Comments,Related_Test_Case
+BUG001,2026-05-12,Tester1,Authentication,Login,Login button not responding,When clicking the login button with valid credentials no action is taken,"1. Navigate to http://localhost:5000/login
+2. Enter username: patient1
+3. Enter password: Patient@123
+4. Click Login button",User should be logged in and redirected to dashboard,"Button does not respond; No action taken; User remains on login page",High,High,Open,,Development,Chrome,Windows 11,bug001_login_error.png,,,Not Verified,,,TC006
+BUG002,,,,,,Example format - This is how to report bugs,"Steps should be numbered
+Screenshots should be attached
+Severity and Priority should be set correctly",,,,,,,,,,,,,,,,
