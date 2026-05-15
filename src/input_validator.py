@@ -1,5 +1,5 @@
 """
-Input Validation Module for Breast Cancer Prediction
+Input Validation Module for Breast Care +
 Validates feature inputs to ensure data quality and prevent errors
 """
 
@@ -7,7 +7,7 @@ import numpy as np
 from sklearn.datasets import load_breast_cancer
 
 class InputValidator:
-    """Validates input features for breast cancer prediction"""
+    """Validates input features for breast care analysis"""
     
     def __init__(self):
         """Initialize validator with feature names and reasonable bounds"""

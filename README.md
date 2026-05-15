@@ -1,7 +1,7 @@
-# AI-Based Breast Cancer Detection System
+# Breast Care +
 
 ## Project Overview
-An intelligent system for breast cancer detection using machine learning algorithms to assist in early diagnosis and treatment planning.
+An intelligent breast care system using machine learning algorithms to assist in early diagnosis and treatment planning.
 
 ## Features
 - Machine learning-based cancer detection

@@ -1,7 +1,7 @@
 # Manual Testing Documentation - Complete Guide
 
 ## 📋 Overview
-This folder contains comprehensive manual testing documentation for the Breast Cancer Prediction Application, following professional IT industry standards.
+This folder contains comprehensive manual testing documentation for Breast Care +, following professional IT industry standards.
 
 ## 📁 Files and Their Purpose
 

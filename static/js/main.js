@@ -1,4 +1,4 @@
-// Main JavaScript for Breast Cancer Detection System
+// Main JavaScript for Breast Care +
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('predictionForm');

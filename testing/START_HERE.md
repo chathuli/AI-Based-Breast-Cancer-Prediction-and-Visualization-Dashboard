@@ -2,7 +2,7 @@
 
 ## Welcome to the Complete Manual Testing Package!
 
-This package contains everything you need for professional manual testing of the Breast Cancer Prediction Application.
+This package contains everything you need for professional manual testing of Breast Care +.
 
 ---
 

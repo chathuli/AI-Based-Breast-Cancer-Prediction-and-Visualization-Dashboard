@@ -1,6 +1,6 @@
 """
 API Testing Script
-Demonstrates how to use the Breast Cancer Detection REST API
+Demonstrates how to use the Breast Care + REST API
 """
 
 import requests
@@ -166,7 +166,7 @@ def test_get_prediction(prediction_id):
 def main():
     """Run all API tests"""
     print("\n" + "="*70)
-    print("  BREAST CANCER DETECTION API - TEST SUITE")
+    print("  BREAST CARE + API - TEST SUITE")
     print("="*70)
     
     # Check if token is set

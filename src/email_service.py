@@ -181,7 +181,7 @@ def _build_html(patient_name: str, appointment: dict) -> str:
         <tr>
           <td style="background:#1C2B4A;padding:24px 40px;text-align:center;">
             <p style="color:rgba(255,255,255,0.7);font-size:13px;margin:0 0 6px;">
-              This is an automated message from the Breast Cancer Detection System.
+              This is an automated message from the Breast Care +.
             </p>
             <p style="color:rgba(255,255,255,0.5);font-size:12px;margin:0;">
               Please do not reply to this email.
@@ -219,7 +219,7 @@ def _build_plain(patient_name: str, appointment: dict) -> str:
     date_fmt = _format_date(appointment.get('appointment_date', ''))
     time_fmt = _format_time(appointment.get('appointment_time', ''))
     return f"""
-Appointment Confirmed — Breast Cancer Detection System
+Appointment Confirmed — Breast Care +
 =======================================================
 
 Dear {patient_name},
@@ -334,7 +334,7 @@ def _build_login_html(user_name: str, login_time: str, role: str) -> str:
         <tr>
           <td style="background:#1C2B4A;padding:24px 40px;text-align:center;">
             <p style="color:rgba(255,255,255,0.7);font-size:13px;margin:0 0 6px;">
-              This is an automated security notification from the Breast Cancer Detection System.
+              This is an automated security notification from Breast Care +.
             </p>
             <p style="color:rgba(255,255,255,0.5);font-size:12px;margin:0;">
               Please do not reply to this email.
@@ -372,8 +372,8 @@ def send_login_notification(user_email: str, user_name: str, role: str = 'user')
         login_time = datetime.now().strftime('%A, %d %B %Y at %I:%M %p')
 
         msg = MIMEMultipart('alternative')
-        msg['Subject'] = '🔐 Login Notification — Breast Cancer Detection System'
-        msg['From']    = f"Breast Cancer Detection System <{EMAIL_FROM}>"
+        msg['Subject'] = '🔐 Login Notification — Breast Care +'
+        msg['From']    = f"Breast Care + <{EMAIL_FROM}>"
         msg['To']      = user_email
 
         plain = (
@@ -558,7 +558,7 @@ def _build_confirmed_html(patient_name: str, appointment: dict, doctor_notes: st
         <tr>
           <td style="background:#1C2B4A;padding:24px 40px;text-align:center;">
             <p style="color:rgba(255,255,255,0.7);font-size:13px;margin:0 0 6px;">
-              This is an automated message from the Breast Cancer Detection System.
+              This is an automated message from the Breast Care +.
             </p>
             <p style="color:rgba(255,255,255,0.5);font-size:12px;margin:0;">
               Please do not reply to this email.
@@ -605,7 +605,7 @@ def send_appointment_confirmed_by_doctor(patient_email: str, patient_name: str,
             f"✅ Appointment Confirmed by Dr. {doctor} — "
             f"{date_fmt} at {time_fmt}"
         )
-        msg['From'] = f"Breast Cancer Detection System <{EMAIL_FROM}>"
+        msg['From'] = f"Breast Care + <{EMAIL_FROM}>"
         msg['To']   = patient_email
 
         plain = (
@@ -685,7 +685,7 @@ def send_appointment_confirmation(patient_email: str, patient_name: str,
             f"{_format_date(appointment.get('appointment_date', ''))} "
             f"at {_format_time(appointment.get('appointment_time', ''))}"
         )
-        msg['From']    = f"Breast Cancer Detection System <{EMAIL_FROM}>"
+        msg['From']    = f"Breast Care + <{EMAIL_FROM}>"
         msg['To']      = patient_email
 
         plain_part = MIMEText(_build_plain(patient_name, appointment), 'plain', 'utf-8')
@@ -861,7 +861,7 @@ def _build_cancelled_html(patient_name: str, appointment: dict, cancel_reason: s
         <tr>
           <td style="background:#1C2B4A;padding:24px 40px;text-align:center;">
             <p style="color:rgba(255,255,255,0.7);font-size:13px;margin:0 0 6px;">
-              This is an automated message from the Breast Cancer Detection System.
+              This is an automated message from the Breast Care +.
             </p>
             <p style="color:rgba(255,255,255,0.5);font-size:12px;margin:0;">
               Please do not reply to this email.
@@ -908,7 +908,7 @@ def send_appointment_cancelled_by_doctor(patient_email: str, patient_name: str,
             f"❌ Appointment Cancelled — "
             f"{date_fmt} at {time_fmt}"
         )
-        msg['From'] = f"Breast Cancer Detection System <{EMAIL_FROM}>"
+        msg['From'] = f"Breast Care + <{EMAIL_FROM}>"
         msg['To']   = patient_email
 
         plain = (

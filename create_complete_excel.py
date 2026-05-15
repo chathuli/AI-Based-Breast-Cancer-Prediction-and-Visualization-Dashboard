@@ -56,7 +56,7 @@ def create_complete_testing_excel():
         instructions_data = [
             ['SECTION', 'CONTENT'],
             ['', ''],
-            ['🎯 OVERVIEW', 'This Excel file contains complete manual testing documentation for Breast Cancer Prediction Application'],
+            ['🎯 OVERVIEW', 'This Excel file contains complete manual testing documentation for Breast Care +'],
             ['', ''],
             ['📋 SHEETS IN THIS FILE', ''],
             ['Sheet 1', 'Test Cases - 60+ detailed test cases with all information'],

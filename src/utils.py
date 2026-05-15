@@ -1,5 +1,5 @@
 """
-Utility functions for Breast Cancer Detection System
+Utility functions for Breast Care +
 """
 
 import numpy as np
