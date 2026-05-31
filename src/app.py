@@ -3,6 +3,7 @@ Flask Web Application for Breast Cancer Detection
 Enhanced with Multi-Model Comparison, History, Reports, Authentication, and REST API
 """
 
+# Standard library imports
 from flask import Flask, render_template, request, jsonify, send_file, session, redirect, url_for
 import numpy as np
 import os
@@ -12,6 +13,7 @@ from datetime import datetime
 # Add src directory to Python path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
+# Internal subsystem imports 
 from enhanced_predict import EnhancedPredictor
 from database import PredictionDatabase
 from report_generator import ReportGenerator
@@ -27,6 +29,7 @@ from email_service import (
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
+#Flask application factory
 app = Flask(__name__, template_folder='../templates', static_folder='../static')
 app.secret_key = 'your-secret-key-change-this-in-production'  # Change this!
 app.config['TEMPLATES_AUTO_RELOAD'] = True  # Auto-reload templates in development
