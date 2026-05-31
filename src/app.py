@@ -117,9 +117,11 @@ def profile():
     # Get user statistics using COUNT query instead of loading all records
     user_id = None if session.get('role') == 'admin' else session.get('user_id')
     total_predictions = db.get_prediction_count(user_id=user_id)
-    
+
+    # Fetch the user's appointment list to show a count on the profile card
     appointments = appointment_manager.get_patient_appointments(session['user_id'])
-    
+
+    # Bundle counts into a simple dict for the template context
     stats = {
         'total_predictions': total_predictions,
         'appointments': len(appointments) if appointments else 0,
@@ -161,7 +163,7 @@ def change_password():
         new_password = data.get('newPassword')
         confirm_password = data.get('confirmPassword')
         
-        # Validation
+        # Input validation 
         if not all([current_password, new_password, confirm_password]):
             return jsonify({
                 'success': False,
