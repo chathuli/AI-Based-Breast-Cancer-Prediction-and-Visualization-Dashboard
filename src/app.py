@@ -98,7 +98,7 @@ def register():
 @app.route('/logout')
 def logout():
     """Logout user"""
-    # Log logout before clearing session
+    # Log logout before clearing  session
     if 'user_id' in session:
         audit_log.log_logout(
             user_id=session.get('user_id'),
